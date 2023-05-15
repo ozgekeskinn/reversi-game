@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+   <meta name="tablo" charset="UTF-8"> 
+    <font color="red"><h1>REVERSİ OYUNU</h1></font>
+    <font color="blue"><h3>Reversi Oyunu Nasıl Oynanır?</h3></font>
+    <ul>
+    <li>Oyunda karşılıklı olarak beyaz ve siyah taşlar bulunmaktadır. Oyuncuların ellerinde 32 adet taş bulunur.</li>
+    <li>Oyun alanına karşılıklı 2 şer taş konularak oyun başlatılır.</li>
+    <li>Oyunun amacı ise rakip taşı kendi taşlarınız ortasına alarak aynı renge çevirmektir.</li>
+    <li>Çapraz, yatay veya dikey şekilde rakibin taşını kendi renginize döndürebilirsiniz.</li>
+    <li>Elinizdeki taşları kullanarak oyuna devam edebilirsiniz.</li>
+    <li>Taşlarınız kenarda ve köşelerde bulunursa oyunu kazanma şansınız artar.</li>
+    <li>Oyun sonunda alanda kimin daha çok taşı kalmışsa o oyunu kazanmış sayılır. </li>
+    </ul>
+
+    <font color="blue"><h3>Reversi Oyunu Kuralları Nelerdir?</h3></font>
+    <ul>
+    <li>Boş oyun platformu ile oyuna başlanılmaz.</li>
+    <li>Rakipler farklı renkte oyun taşını kullanmalıdır.</li>
+    <li>İlk hamle her zaman siyah renkli taşın sahibinindedir.</li>
+    <li>Siyah rengi kullanan oyuncu oyuna küçük bir avantajla başlamış sayılır. Bu yüzden tecrübesiz olan kişi siyah taşı kullanırsa daha iyi olur.</li>
+    <li>​​​​​​Eğer rakibin taşını döndürecek hamleniz yoksa pas demelisiniz.</li>
+    <li>​Oyun tahtasının alakasız bir yerine taş koymak yasaktır. Taşları ona göre dizmeniz gerekmektedir.</li>
+    <li>Oyunda rakibin hamlelerini sınırlandırmak serbesttir. Bunun için kendi staratejinizi kullanabilirsiniz.</li>
+    </ul>
+
+    <table border="1">
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+</table>
+
+    <style>
+        
+        table{
+        width: 400px;
+        height: 400px ;
+        background-color: rgba(111, 34, 34, 0.778);
+        }
+    
+        #tablo.boş {
+            background-color: rgba(122, 8, 8, 0.778);
+        }
+
+        #tablo.siyah {
+            background-color: black;
+        }
+        
+        #tablo.beyaz {
+            background-color: white;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<script>
+
+     let i;
+     let j; 
+     var tablom=[i][j];
+     const boş=0;
+     const siyah=1;
+     const beyaz=2;
+     const sayac=8;
+     
+
+    let tablom = [];
+    let oyunSirasi = siyah ;
+    let hamleSayisi=0 ;
+    let siyahSkor=2 ;
+    let beyazSkor=2 ;
+    let oyunSonu= false ;
+
+    let tahtaDiv = document.getElementById("tahta"); 
+    let oyunSirasi = document.getElementById("sira"); 
+    let hamleSayisi = document.getElementById("hamleSayisi");
+
+     function oyna() {
+
+        beyazTas = new component(30, 30, "white", 10, 120);
+
+        for (i=0 ; i<sayac ; i++){
+           tablom[i] = [];
+        for (j=0 ; j<sayac ; j++){
+           tablom[i][j] = boş;
+        }
+     }
+
+    tablom[3][3] = beyaz;
+    tablom[3][4] = siyah;
+    tablom[4][3] = siyah;
+    tablom[4][4] = beyaz;
+
+    yenile(); //oyun tahtasını yenileme fonksiyonudur
+
+    }
+
+    function yenile(){
+    for (let i = 0; i < sayac; i++) {
+    html += "<div class='satir'>";
+    for (let j = 0; j < sayac; j++) {
+      html += "<div class='kare' onclick='hamleYap(" + i + "," + j + ")'>";
+      if (tahta[i][j] != boş) {
+        html += "<div class='tas " + RENKLER[tahta[i][j]] + "'></div>";
+      }
+      html += "</div>";
+    }
+    html += "</div>";
+  }
+}
+
+function hamleYap(x, y) {
+}
+
+</script>
+
+
+</body></html>
+
